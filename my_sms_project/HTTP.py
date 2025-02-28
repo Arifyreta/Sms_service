@@ -9,7 +9,7 @@ class HTTPRequest:
 
     def to_bytes(self) -> bytes:
         headers = "\r\n".join(f"{k}: {v}" for k, v in self.headers.items())
-        return f"{self.method} {self.url} HTTP/1.1\r\n{headers}\r\n{self.body}".encode()
+        return f"{self.method} {self.url} HTTP/1.1\r\n{headers}\r\n\r\n{self.body}".encode()
 
 #Создаём класс представляющий HTTP-ответ  
 class HTTPResponse:
